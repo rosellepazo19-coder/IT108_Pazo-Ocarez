@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background:#204E3C;
+
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; 
+}
+
+
+:root {
+    --primary: #2e7d32;
+    --secondary: #85bba8;
+    --accent: #9ceba0;
+    --text-dark: #333;
+    --text-light: #fff;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+.header {
+    position: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 80px;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: bold;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.logo1 img {
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo1 img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+.logo2 {
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    color: #ffb74d; 
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: #ffc766; 
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    transform: translateY(-2px);
+    color: #ffd699;
+}
+
+
+form {
+    margin-top: 0;
+    padding: 20px;
+
+}
+
+
+
+.auto-switch {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+
+.auto-switch a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auto-switch a:hover {
+    color: var(--secondary);
+}
+
+
+.footer {
+    background-color: var(--primary);
+    color: #ffc766;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+}
+
+
+@media screen and (min-width: 768px) {
+    .registration-container {
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+    }
+    
+    .registration-picture {
+        display: none !important;
+    }
+    
+    .registration-info {
+        width: 100% !important;
+        max-width: 640px !important;
+        order: 1;
+        border-radius: 15px;
+        padding: 2rem;
+    }
+    
+    .input-box1 div,
+    .input-box2 div,
+    .input-box3 div,
+    .input-box4 div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 12px;
+    }
+    
+    .input-box1 input,
+    .input-box2 input,
+    .input-box3 input,
+    .input-box4 input,
+    .input-box2 select {
+        flex: 1;
+    }
+    
+    .input-box3 #password-strength-status {
+        flex: 0.3;
+        min-width: 120px;
+    }
+    
+    .navbar a {
+        margin: 0 20px;
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .registration-container {
+        gap: 0;
+    }
+    
+    .registration-picture {
+        display: none !important;
+    }
+    
+    .registration-info {
+        width: 100% !important;
+        max-width: 640px !important;
+        padding: 2rem;
+        border-radius: 15px;
+    }
+    
+ 
+    .input-box1 div,
+    .input-box2 div,
+    .input-box3 div,
+    .input-box4 div {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px 12px;
+    }
+    
+    .registration-info h1 {
+        font-size: 2.5rem;
+    }
+    
+    .navbar a {
+        margin: 0 30px;
+        font-size: 20px;
+    }
+    
+    .logo2 {
+        font-size: 24px;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .header {
+        padding: 10px 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .logo {
+        justify-content: center;
+    }
+    
+    .logo2 {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .navbar {
+        margin-right: 0;
+        justify-content: center;
+    }
+    
+    .navbar a {
+        margin: 0 10px;
+        font-size: 16px;
+    }
+    
+    form { margin-top: 0; padding: 0; }
+    
+    .login-container {
+        height: 100vh;
+        margin-top: 0;
+        padding: 100px 15px 70px;
+    }
+    
+    .registration-container {
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 100px 15px 70px;
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    .login-form {
+        padding: 1.5rem;
+    }
+    
+    .login-form h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .registration-info {
+        padding: 20px 15px;
+    }
+    
+    .registration-info h1 {
+        font-size: 1.8rem;
+    }
+    
+    .input-box1 input,
+    .input-box2 input,
+    .input-box3 input,
+    .input-box4 input,
+    .input-box2 select {
+        font-size: 16px; 
+    }
+    
+    .footer {
+        position: relative;
+        margin-top: 50px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+    
+    .logo1 img {
+        height: 50px;
+    }
+    
+    .logo2 {
+        font-size: 16px;
+    }
+    
+    .navbar a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+    
+    form { margin-top: 0; padding: 0; }
+    
+    .login-container {
+        height: 100vh;
+        margin-top: 0;
+        padding: 100px 10px 80px;
+    }
+    
+    .registration-container {
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 100px 10px 80px;
+        width: 100%;
+        margin-top: 0;
+        gap: 0;
+    }
+    
+    .registration-info {
+        padding: 20px 15px;
+    }
+    
+    .registration-info h1 {
+        font-size: 1.6rem;
+    }
+    
+    .input-box1 div,
+    .input-box2 div,
+    .input-box3 div {
+        gap: 12px;
+    }
+    
+    .input-box1 input,
+    .input-box2 input,
+    .input-box3 input,
+    .input-box4 input,
+    .input-box2 select {
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .header {
+        position: relative;
+    }
+    
+    form {
+        margin-top: 20px;
+    }
+    
+    .login-container {
+        height: 100vh;
+        padding: 80px 20px 60px;
+    }
+    
+    .registration-container {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0;
+    }
+    
+    .registration-picture {
+        width: 50%;
+        height: 300px;
+        border-radius: 15px 0 0 15px;
+    }
+    
+    .registration-info {
+        width: 50%;
+        padding: 20px;
+        border-radius: 0 15px 15px 0;
+    }
+}
+
+
+  
+label {
+    display: block;         
+    margin-bottom: 5px;     
+    font-weight: bold;
+  }
+
+input {
+    width: 100%;            
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}

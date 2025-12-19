@@ -1,0 +1,230 @@
+:root {
+    --primary: #2e7d32;
+    --dark-green: #1b5e20;
+    --text-dark: #2b2b2b;
+    --text-light: #fff;
+    --accent: #c8f0d0;
+    --card-bg: #f6fff4;
+    --shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+body.service-page {
+    margin: 0;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #062512;
+    min-height: 100vh;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body.service-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('../uploads/BACKGORUNDDD.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px);
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.service-main {
+    flex: 1;
+    padding: 2rem 1rem 2.5rem;
+}
+
+.service-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.service-card,
+.inventory-panel {
+    background: rgba(255,255,255,0.9);
+    border-radius: 24px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: var(--dark-green);
+    font-size: 1.6rem;
+}
+
+.section-header p {
+    margin: 0.5rem 0 0;
+    color: #4a4a4a;
+    font-size: 0.95rem;
+}
+
+.services-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.service-info-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 1.25rem;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+
+.service-info-card h3 {
+    margin: 0 0 0.35rem;
+    color: var(--primary);
+    font-size: 1.05rem;
+}
+
+.service-info-card p {
+    margin: 0 0 0.6rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.service-info-card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.inventory-header h3 {
+    margin: 0;
+    color: var(--dark-green);
+    font-size: 1.3rem;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.service-product {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-product img,
+.service-product .placeholder {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.service-product .placeholder {
+    background: linear-gradient(120deg, #f5f5f5, #e0e0e0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-weight: 500;
+}
+
+.service-product .content {
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex: 1;
+}
+
+.service-product .category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.service-product h4 {
+    margin: 0;
+    color: var(--dark-green);
+    font-size: 1.05rem;
+}
+
+.service-product p {
+    margin: 0;
+    color: #555;
+    font-size: 0.88rem;
+}
+
+.service-product .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.service-product .price {
+    font-weight: 700;
+    color: var(--dark-green);
+}
+
+.service-product .stock {
+    font-weight: 600;
+}
+
+.service-product button {
+    margin-top: auto;
+    padding: 0.6rem 0.9rem;
+    border-radius: 12px;
+    border: 1px solid var(--primary);
+    background: rgba(46,125,50,0.08);
+    color: var(--dark-green);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.service-product button:hover {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    .service-card,
+    .inventory-panel {
+        padding: 1.5rem;
+    }
+
+    .inventory-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+

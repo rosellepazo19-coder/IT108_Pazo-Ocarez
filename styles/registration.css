@@ -1,0 +1,568 @@
+:root {
+    --primary: #2e7d32;
+    --secondary: #85bba8;
+    --accent: #9ceba0;
+    --text-dark: #333;
+    --text-light: #fff;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.registration-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 100px);
+    box-sizing: border-box;
+    padding: 80px 20px 100px;
+    width: 100%;
+    margin-top: 0;
+}
+
+.registration-form {
+    background: var(--secondary);
+    border-radius: 15px;
+    box-shadow: var(--shadow-hover);
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.registration-form h1 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Step Progress Indicator */
+.step-progress {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    max-width: 120px;
+}
+
+.step-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    z-index: 1;
+}
+
+.step-item.active:not(:last-child)::after,
+.step-item.completed:not(:last-child)::after {
+    background: var(--primary);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.step-item.active .step-number {
+    background: var(--primary);
+    color: var(--text-light);
+}
+
+.step-item.completed .step-number {
+    background: var(--accent);
+    color: var(--text-dark);
+}
+
+.step-label {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #666;
+    font-weight: 500;
+}
+
+.step-item.active .step-label {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.step-item.completed .step-label {
+    color: var(--accent);
+}
+
+/* Step Content */
+.step {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.step.active {
+    display: block;
+}
+
+.step h2 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.step p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+    text-align: center;
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Password fields should span full width */
+.step[data-step="3"] .form-field {
+    grid-column: span 2;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.85rem;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* Security Questions Grid */
+.security-questions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.security-question-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.security-question-item label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.security-question-item select,
+.security-question-item input {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.security-question-item select:focus,
+.security-question-item input:focus {
+    border-color: var(--primary);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    outline: none;
+}
+
+/* Step Navigation */
+.step-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 100px;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--text-dark);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--primary);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.btn-secondary {
+    background: #fff;
+    color: var(--text-dark);
+    border: 2px solid #ddd;
+}
+
+.btn-secondary:hover {
+    background: #f5f5f5;
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.alert.error {
+    background: #fee;
+    border-left: 4px solid #e74c3c;
+    color: #721c24;
+}
+
+.alert.success {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    color: #155724;
+}
+
+.alert ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.alert li {
+    margin: 0.25rem 0;
+}
+
+.alert a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.alert a:hover {
+    text-decoration: underline;
+}
+
+/* Required and Optional Text */
+.required-asterisk {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.optional-text {
+    color: #999;
+    font-size: 0.85em;
+    font-weight: normal;
+}
+
+/* Login Link */
+.auto-switch {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.log-btn {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.log-btn:hover {
+    text-decoration: underline;
+}
+
+/* Password Input Wrapper */
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-wrapper input {
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: color 0.3s;
+    z-index: 1;
+}
+
+.toggle-password:hover {
+    color: var(--primary);
+}
+
+.eye-icon {
+    user-select: none;
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* Password Requirements */
+.password-requirements {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.password-requirement-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.password-requirement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.password-requirement-list li {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+    padding-left: 1.5rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.password-requirement-list li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: #e74c3c;
+}
+
+.password-requirement-list li.met {
+    color: #28a745;
+}
+
+.password-requirement-list li.met::before {
+    content: '✓';
+    color: #28a745;
+}
+
+/* Password Strength Status */
+#password-strength-status {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
+
+/* Hide password requirements by default */
+.password-requirements {
+    display: none !important;
+}
+
+#password-strength-status.strength-weak {
+    display: block;
+    background: #fee;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+#password-strength-status.strength-medium {
+    display: block;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+#password-strength-status.strength-strong {
+    display: block;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Error Messages */
+.field-error {
+    color: #c0392b;
+    font-size: 0.75rem;
+    margin-top: 0.35rem;
+    display: block;
+    padding: 0.35rem 0.5rem;
+    background: #fdf2f2;
+    border-left: 2px solid #e74c3c;
+    border-radius: 3px;
+    line-height: 1.3;
+    width: 100%;
+    clear: both;
+    box-sizing: border-box;
+}
+
+.field-error strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    font-size: 0.78rem;
+}
+
+.field-error ul {
+    margin: 0.15rem 0 0 0;
+    padding-left: 1rem;
+    list-style-type: disc;
+}
+
+.field-error li {
+    margin-bottom: 0.08rem;
+    line-height: 1.2;
+    font-size: 0.73rem;
+}
+
+.form-field input.error,
+.form-field select.error {
+    border-color: #e74c3c !important;
+    background-color: #fdf2f2 !important;
+}
+
+.security-question-item input.error,
+.security-question-item select.error {
+    border-color: #e74c3c !important;
+    background-color: #fdf2f2 !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .security-questions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .registration-form {
+        padding: 1.5rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .security-questions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-progress {
+        margin-bottom: 1.5rem;
+    }
+    
+    .step-item {
+        max-width: 80px;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .step-label {
+        font-size: 0.7rem;
+    }
+    
+    .step-navigation {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
